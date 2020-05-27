@@ -7,6 +7,7 @@ public class Hotel {
     public Hotel(){
         rooms = new ArrayList<>();
     }
+    
 
     public void checkIn(Guest guest, Room room){
         // when checking in,

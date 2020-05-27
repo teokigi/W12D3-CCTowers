@@ -1,9 +1,12 @@
 import org.junit.Before;
 
+import static org.junit.Assert.*;
+
 public class HotelTest {
 
 
     Room bedRoom;
+    Room bedRoom2;
     Room confRoom;
     Guest guest;
     Hotel hotel;
@@ -12,6 +15,7 @@ public class HotelTest {
     public void before(){
         guest = new Guest("Jimmy Chu");
         bedRoom = new Room("666","bedroom",2,"double");
+        bedRoom2 = new Room("999","bedroom",1,"single");
         confRoom = new Room("Hell","conference",5,"n/a");
         confRoom.addGuest(guest);
         confRoom.addGuest(guest);
@@ -27,9 +31,14 @@ public class HotelTest {
         hotel.addRoom(confRoom);
     }
 
-    //collection of room
+    //collection of room, room count
     public void hasRooms(){
         assertEquals(2,hotel.roomCount());
+    }
+    //add room test
+    public void addingARoom(){
+        hotel.addRoom(bedRoom2);
+        assertEquals(3,hotel.roomCount());
     }
     // checkin
     public void checkInTest(){
@@ -47,7 +56,7 @@ public class HotelTest {
     // clearout room
     public void clearOutTest(){
         hotel.clearOut(confRoom);
-        assertFalse(0,confRoom.getOccupiedStatus());
+        assertFalse(confRoom.getOccupiedStatus());
     }
 
 }
