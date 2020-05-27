@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RoomTest {
 
@@ -16,7 +17,7 @@ public class RoomTest {
         // capacity,
         // collection - array, 0 on initialize
         // beds
-        // occupiedStatus
+        // occupiedStatus - boolean, false on initialize.
         guest = new Guest("Jimmy");
         bedRoom = new Room("666","bedroom",2,"double");
         confRoom = new Room("Hell","conference",5,"n/a");
@@ -72,5 +73,14 @@ public class RoomTest {
     public void hasBedsValue(){
         assertEquals("double",bedRoom.getBedType());
     }
-
+    // Occupied status true
+    @Test
+    public void roomIsOccupied(){
+        assertTrue(bedRoom.getOccupiedStatus());
+    }
+    // occupied status false
+    @Test
+    public void roomIsNotOccupied(){
+        assertFalse(confRoom.getOccupiedStatus());
+    }
 }

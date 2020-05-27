@@ -21,8 +21,8 @@ public class HotelTest {
         // checkin.
         // checkout.
         hotel = new Hotel();
-        hotel.addRoom(bedRoom);
-        hotel.addRoom(confRoom);
+//        hotel.addRoom(bedRoom);
+//        hotel.addRoom(confRoom);
     }
 
     // collection of room types.
