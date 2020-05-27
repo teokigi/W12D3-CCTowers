@@ -8,14 +8,16 @@ public class Room {
     private final ArrayList<Guest> occupants;
     private final String bedType;
     private boolean occupiedStatus;
+    private final int rate;
 
-    public Room(String name,String type,int capacity,String bedType){
+    public Room(String name,String type,int capacity,String bedType, int rate){
         this.name = name;
         this.type = type;
         this.capacity = capacity;
         this.occupants = new ArrayList<>();
         this.bedType = bedType;
         this.occupiedStatus = false;
+        this.rate = rate;
     }
 
     public String getName() {
@@ -32,6 +34,10 @@ public class Room {
 
     public int  occCount(){
         return occupants.size();
+    }
+
+    public int getRate() {
+        return this.rate;
     }
 
     public void addGuest(Guest guest){
@@ -56,4 +62,7 @@ public class Room {
         return occupiedStatus;
     }
 
+    public ArrayList<Guest> getOccupants() {
+        return this.occupants;
+    }
 }

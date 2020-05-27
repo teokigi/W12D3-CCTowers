@@ -18,8 +18,8 @@ public class RoomTest {
         // beds
         // occupiedStatus - boolean, false on initialize.
         guest = new Guest("Jimmy");
-        bedRoom = new Room("666","bedroom",2,"double");
-        confRoom = new Room("Hell","conference",5,"n/a");
+        bedRoom = new Room("666","bedroom",2,"double", 50);
+        confRoom = new Room("Hell","conference",5,"n/a", 50);
         confRoom.addGuest(guest);
         confRoom.addGuest(guest);
     }
