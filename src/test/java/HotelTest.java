@@ -1,4 +1,5 @@
 import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -32,15 +33,18 @@ public class HotelTest {
     }
 
     //collection of room, room count
+    @Test
     public void hasRooms(){
         assertEquals(2,hotel.roomCount());
     }
     //add room test
+    @Test
     public void addingARoom(){
         hotel.addRoom(bedRoom2);
         assertEquals(3,hotel.roomCount());
     }
     // checkin
+    @Test
     public void checkInTest(){
         hotel.checkIn(guest,bedRoom);
         assertTrue(bedRoom.getOccupiedStatus());
@@ -49,11 +53,13 @@ public class HotelTest {
         assertEquals(2,bedRoom.occCount());
     }
     // checkout
+    @Test
     public void checkOutTest(){
         hotel.checkOut(guest,confRoom);
         assertEquals(1,confRoom.occCount());
     }
     // clearout room
+    @Test
     public void clearOutTest(){
         hotel.clearOut(confRoom);
         assertFalse(confRoom.getOccupiedStatus());
