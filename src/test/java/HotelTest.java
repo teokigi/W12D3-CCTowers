@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -14,6 +15,7 @@ public class HotelTest {
     Room dinningRoom;
     Guest guest;
     Hotel hotel;
+    ArrayList<Guest> guests;
 
     @Before
     public void before(){
@@ -22,13 +24,16 @@ public class HotelTest {
         bedRoom2 = new Room("999","bedroom",1,"single", 50);
         confRoom = new Room("Hell","conference",5,"n/a", 50);
         dinningRoom = new Room("PizzaRoom","dining",5,"n/a", 50);
+        guests = new ArrayList<Guest>();
         confRoom.addGuest(guest);
         confRoom.addGuest(guest);
         dinningRoom.addGuest(guest);
         dinningRoom.addGuest(guest);
+        bedRoom2.addGuest(guest);
         //hotel properties setup.
         // collection of room types
-
+        guests.add(guest);
+        guests.add(guest);
         //methods
         // checkin.
         // checkout.
@@ -53,10 +58,8 @@ public class HotelTest {
     // checkin
     @Test
     public void checkInTest(){
-        hotel.checkIn(guest,bedRoom);
+        hotel.checkIn(guests,bedRoom);
         assertTrue(bedRoom.getOccupiedStatus());
-        hotel.checkIn(guest,bedRoom);
-        hotel.checkIn(guest,bedRoom);
         assertEquals(2,bedRoom.occCount());
     }
     // checkout
@@ -82,4 +85,11 @@ public class HotelTest {
         boolean result = hotel.getDinningRooms().containsKey("PizzaRoom");
         assertEquals(true, result);
     }
+
+    @Test
+    public void amountOfEmptyBedrooms(){
+        assertEquals(1, hotel.checkEmptyBedrooms());
+    }
+
+
 }

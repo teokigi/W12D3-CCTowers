@@ -33,11 +33,13 @@ public class Hotel {
         return this.rooms.size();
     }
 
-    public void checkIn(Guest guest, Room room){
+    public void checkIn(ArrayList<Guest> guests, Room room){
         // when checking in,
         // control statement, if full can't add more.
-        if (room.occCount() < room.getCap()) {
+        if ((room.occCount() == 0) && guests.size() <= room.getCap()) {
+            for (Guest guest: guests){
             room.addGuest(guest);
+            }
         }
     }
 
@@ -62,4 +64,15 @@ public class Hotel {
     public void clearOut(Room room){
         room.emptyRoom();
     }
+
+    public int checkEmptyBedrooms(){
+        int count = 0;
+        for (Room room: rooms){
+            if ((room.getType() == "bedroom") && room.occCount() == 0){
+                count++;
+            }
+        }
+        return count;
+    }
 }
+
