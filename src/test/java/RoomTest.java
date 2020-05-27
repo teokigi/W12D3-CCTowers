@@ -1,8 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class RoomTest {
 
@@ -73,14 +72,14 @@ public class RoomTest {
     public void hasBedsValue(){
         assertEquals("double",bedRoom.getBedType());
     }
-    // Occupied status true
+    // test the room that has 2 guests
     @Test
     public void roomIsOccupied(){
-        assertTrue(bedRoom.getOccupiedStatus());
+        assertTrue(confRoom.getOccupiedStatus());
     }
-    // occupied status false
+    // test the room that has no guests
     @Test
     public void roomIsNotOccupied(){
-        assertFalse(confRoom.getOccupiedStatus());
+        assertFalse(bedRoom.getOccupiedStatus());
     }
 }
